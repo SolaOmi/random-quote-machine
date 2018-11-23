@@ -46,3 +46,25 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* -------------------------------- CSS --------------------------------*/
+#root {
+  align-items: center;
+  background-color: lightgreen;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.white-background {
+  background-color: #fff;
+}
+
+.box {
+  height: 40%;
+  width: 40%;
+}
+
+.rounded {
+  border-radius: 8px;
+}

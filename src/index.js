@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class HelloWorld extends React.Component {
+class QuoteBox extends React.Component {
   render() {
-    return <div>Hello, world!</div>;
+    return <div className="white-background box rounded"></div>;
   }
 }
 
-ReactDOM.render(<HelloWorld />, document.getElementById('root') )
+ReactDOM.render(<QuoteBox />, document.getElementById('root'))
