@@ -4,7 +4,7 @@ import './index.css';
 
 class QuoteBox extends React.Component {
   render() {
-    return <div className="white-background box rounded"></div>;
+    return <div id="quote-box" className="white-background box rounded"></div>;
   }
 }
 

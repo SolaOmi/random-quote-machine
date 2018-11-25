@@ -62,9 +62,16 @@ table {
 
 .box {
   height: 40%;
-  width: 40%;
+  width: 90%;
 }
 
 .rounded {
   border-radius: 8px;
+}
+
+@media (min-width: 700px) {
+	.box {
+		height: 40%;
+		width: 40%;
+	}
 }
