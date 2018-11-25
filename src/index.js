@@ -5,8 +5,8 @@ import './index.css';
 function Quote(props) {
   return (
       <div>
-        <p>{props.text}</p>
-        <p>-{props.author}</p>
+        <p id="text">{props.text}</p>
+        <p id="author">-{props.author}</p>
       </div>
   );
 }
@@ -14,8 +14,8 @@ function Quote(props) {
 function QuoteBoxBtns(props) {
   return (
     <div>
-      <button>tweet</button>
-      <button>new quote</button>
+      <button id="tweet-quote">tweet</button>
+      <button id="new-quote">new quote</button>
     </div>
   );
 }
