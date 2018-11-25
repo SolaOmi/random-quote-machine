@@ -11,6 +11,15 @@ function Quote(props) {
   );
 }
 
+function QuoteBoxBtns(props) {
+  return (
+    <div>
+      <button>tweet</button>
+      <button>new quote</button>
+    </div>
+  );
+}
+
 class QuoteBox extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +37,7 @@ class QuoteBox extends React.Component {
           author={this.state.author}
           text={this.state.text}
         />
+        <QuoteBoxBtns />
       </div>
     );
   }
