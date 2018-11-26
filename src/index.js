@@ -5,6 +5,7 @@ import './index.css';
 function Quote(props) {
   return (
       <div>
+        <p id="category">{props.category}</p>
         <p id="text">{props.text}</p>
         <p id="author">-{props.author}</p>
       </div>
@@ -25,7 +26,8 @@ class QuoteBox extends React.Component {
     super(props);
     this.state = {
       text: null,
-      author: null
+      author: null,
+      category: null,
     };
   }
 
@@ -37,7 +39,8 @@ class QuoteBox extends React.Component {
       .then(result => {
         this.setState({
           text: result.quote,
-          author: result.author
+          author: result.author,
+          category: result.cat
         })
       });
   }
@@ -52,6 +55,7 @@ class QuoteBox extends React.Component {
         <Quote
           author={this.state.author}
           text={this.state.text}
+          category={this.state.category}
         />
         <QuoteBoxBtns
           onClick={() => this.getQuote()}
