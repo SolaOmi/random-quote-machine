@@ -15,7 +15,7 @@ function QuoteBoxBtns(props) {
   return (
     <div>
       <button id="tweet-quote">tweet</button>
-      <button id="new-quote">new quote</button>
+      <button id="new-quote" onClick={props.onClick}>new quote</button>
     </div>
   );
 }
@@ -29,17 +29,21 @@ class QuoteBox extends React.Component {
     };
   }
 
-  componentDidMount() {
+  getQuote() {
     const url = "https://talaikis.com/api/quotes/random/"
 
     fetch(url)
       .then(res => res.json())
       .then(result => {
-          this.setState({
-            text: result.quote,
-            author: result.author
-          })
-        });
+        this.setState({
+          text: result.quote,
+          author: result.author
+        })
+      });
+  }
+
+  componentDidMount() {
+    this.getQuote();
   }
 
   render() {
@@ -49,7 +53,9 @@ class QuoteBox extends React.Component {
           author={this.state.author}
           text={this.state.text}
         />
-        <QuoteBoxBtns />
+        <QuoteBoxBtns
+          onClick={() => this.getQuote()}
+        />
       </div>
     );
   }
