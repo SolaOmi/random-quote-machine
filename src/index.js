@@ -24,10 +24,22 @@ class QuoteBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: `Two roads diverged in a wood, and I--I took the one less traveled
-      by, And that has made all the difference.`,
-      author: "Robert Frost"
+      text: null,
+      author: null
     };
+  }
+
+  componentDidMount() {
+    const url = "https://talaikis.com/api/quotes/random/"
+
+    fetch(url)
+      .then(res => res.json())
+      .then(result => {
+          this.setState({
+            text: result.quote,
+            author: result.author
+          })
+        });
   }
 
   render() {
