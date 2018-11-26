@@ -15,8 +15,8 @@ function Quote(props) {
 function QuoteBoxBtns(props) {
   return (
     <div>
-      <button id="tweet-quote">tweet</button>
-      <button id="new-quote" onClick={props.onClick}>new quote</button>
+      <button id="tweet-quote" onClick={props.tweetQuote}>tweet</button>
+      <button id="new-quote" onClick={props.getQuote}>new quote</button>
     </div>
   );
 }
@@ -45,6 +45,11 @@ class QuoteBox extends React.Component {
       });
   }
 
+  tweetQuote() {
+    const url = 'https://twitter.com/intent/tweet?text='
+    window.open(url + escape(this.state.text + "\n- " + this.state.author));
+  }
+
   componentDidMount() {
     this.getQuote();
   }
@@ -58,7 +63,8 @@ class QuoteBox extends React.Component {
           category={this.state.category}
         />
         <QuoteBoxBtns
-          onClick={() => this.getQuote()}
+          getQuote={() => this.getQuote()}
+          tweetQuote={() => this.tweetQuote()}
         />
       </div>
     );
