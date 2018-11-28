@@ -7,14 +7,14 @@ function Quote(props) {
       <div>
         <h1 id="category">{props.category}</h1>
         <p id="text">{props.text}</p>
-        <p id="author">-{props.author}</p>
+        <p id="author">-- {props.author} --</p>
       </div>
   );
 }
 
 function QuoteBoxBtns(props) {
   return (
-    <div>
+    <div id="quote-btns">
       <button id="tweet-quote" onClick={props.tweetQuote}>tweet</button>
       <button id="new-quote" onClick={props.getQuote}>new quote</button>
     </div>
