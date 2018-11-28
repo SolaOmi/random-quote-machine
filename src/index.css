@@ -48,9 +48,13 @@ table {
 }
 
 /* -------------------------------- CSS --------------------------------*/
+body {
+	color: lightgreen;
+	background-color: lightgreen;
+}
+
 #root {
   align-items: center;
-  background-color: lightgreen;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -83,7 +87,9 @@ table {
 }
 
 .btn {
+	background-color: lightgreen;
 	border: none;
+	color: white;
 	padding: 0.5rem;
 }
 
