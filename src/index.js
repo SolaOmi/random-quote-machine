@@ -5,7 +5,7 @@ import './index.css';
 function Quote(props) {
   return (
       <div>
-        <p id="category">{props.category}</p>
+        <h1 id="category">{props.category}</h1>
         <p id="text">{props.text}</p>
         <p id="author">-{props.author}</p>
       </div>

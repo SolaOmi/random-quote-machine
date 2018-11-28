@@ -48,6 +48,9 @@ table {
 }
 
 /* -------------------------------- CSS --------------------------------*/
+h1 {
+	font-size: 2rem;
+}
 #root {
   align-items: center;
   background-color: lightgreen;
