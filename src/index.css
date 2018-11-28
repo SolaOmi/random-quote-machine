@@ -65,6 +65,10 @@ table {
 	text-align: right;
 }
 
+#tweet-quote {
+	margin-right: 0.5rem;
+}
+
 .white-background {
   background-color: #fff;
 }
@@ -76,6 +80,11 @@ table {
 
 .rounded {
   border-radius: 8px;
+}
+
+.btn {
+	border: none;
+	padding: 0.5rem;
 }
 
 @media (min-width: 700px) {

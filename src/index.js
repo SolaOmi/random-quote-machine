@@ -15,8 +15,16 @@ function Quote(props) {
 function QuoteBoxBtns(props) {
   return (
     <div id="quote-btns">
-      <button id="tweet-quote" onClick={props.tweetQuote}>tweet</button>
-      <button id="new-quote" onClick={props.getQuote}>new quote</button>
+      <button id="tweet-quote"
+              className="btn rounded"
+              onClick={props.tweetQuote}>
+              tweet
+      </button>
+      <button id="new-quote"
+              className="btn rounded"
+              onClick={props.getQuote}>
+              new quote
+      </button>
     </div>
   );
 }
