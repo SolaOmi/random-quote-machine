@@ -61,6 +61,15 @@ body {
   justify-content: center;
 }
 
+#category {
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+#text {
+	font-size: 1.4rem;
+}
+
 #category, #text, #author {
 	margin-bottom: 1.5rem;
 	text-align: center;
