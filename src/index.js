@@ -2,6 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const colors = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
+		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+		  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
+		  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+		  '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC',
+		  '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+		  '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
+		  '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+		  '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
+		  '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
+
 function Quote(props) {
   return (
       <div>
@@ -16,12 +27,12 @@ function QuoteBoxBtns(props) {
   return (
     <div id="quote-btns">
       <button id="tweet-quote"
-              className="btn rounded"
+              className="btn rounded animated"
               onClick={props.tweetQuote}>
               tweet
       </button>
       <button id="new-quote"
-              className="btn rounded"
+              className="btn rounded animated"
               onClick={props.getQuote}>
               new quote
       </button>
@@ -51,6 +62,8 @@ class QuoteBox extends React.Component {
           category: result.cat
         })
       });
+
+    changeColor()
   }
 
   tweetQuote() {
@@ -79,4 +92,19 @@ class QuoteBox extends React.Component {
   }
 }
 
+// ===================================================================
+
 ReactDOM.render(<QuoteBox />, document.getElementById('root'))
+
+function changeColor() {
+  let num = Math.floor(Math.random() * colors.length);
+  const body = document.body;
+  const btns = document.getElementsByClassName('btn');
+
+  body.style.background = colors[num];
+  body.style.color = colors[num];
+  
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].style.background = colors[num];
+  }
+}

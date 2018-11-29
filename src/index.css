@@ -49,8 +49,6 @@ table {
 
 /* -------------------------------- CSS --------------------------------*/
 body {
-	color: lightgreen;
-	background-color: lightgreen;
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -97,10 +95,14 @@ body {
 }
 
 .btn {
-	background-color: lightgreen;
 	border: none;
 	color: white;
 	padding: 0.5rem;
+}
+
+.animated {
+	transition-property: background-color, color;
+	transition-duration: 1s;
 }
 
 @media (min-width: 700px) {
