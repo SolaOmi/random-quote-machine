@@ -44,6 +44,14 @@ function QuoteBoxBtns(props) {
   );
 }
 
+function CircleTimer() {
+	return (
+		<svg>
+			<circle id="timer" r="18" cx="20" cy="20" />
+		</svg>
+	);
+}
+
 class QuoteBox extends React.Component {
   constructor(props) {
     super(props);
@@ -77,6 +85,7 @@ class QuoteBox extends React.Component {
 
   componentDidMount() {
     this.getQuote();
+		this.interval = setInterval(() => this.getQuote(), 10000);
   }
 
   render() {
@@ -87,10 +96,13 @@ class QuoteBox extends React.Component {
           text={this.state.text}
           category={this.state.category}
         />
-        <QuoteBoxBtns
-          getQuote={() => this.getQuote()}
-          tweetQuote={() => this.tweetQuote()}
-        />
+				<div id="lower-container">
+					<CircleTimer />
+        	<QuoteBoxBtns
+          	getQuote={() => this.getQuote()}
+          	tweetQuote={() => this.tweetQuote()}
+        	/>
+				</div>
       </div>
     );
   }
@@ -104,9 +116,11 @@ function changeColor() {
   let num = Math.floor(Math.random() * colors.length);
   const body = document.body;
   const btns = document.getElementsByClassName('btn');
+	const timer = document.getElementById('timer');
 
   body.style.background = colors[num];
   body.style.color = colors[num];
+	timer.style.stroke = colors[num];
 
   for (let i = 0; i < btns.length; i++) {
     btns[i].style.background = colors[num];

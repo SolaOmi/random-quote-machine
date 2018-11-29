@@ -52,6 +52,31 @@ body {
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
+svg {
+	width: 40px;
+	height: 40px;
+	text-align: left;
+}
+
+svg circle {
+  stroke-dasharray: 113px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke: black;
+  fill: none;
+  animation: countdown 10s linear infinite forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
+
 #root {
   align-items: center;
   display: flex;
@@ -79,6 +104,12 @@ body {
 
 #tweet-quote {
 	margin-right: 0.5rem;
+}
+
+#lower-container {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
 }
 
 .white-background {
