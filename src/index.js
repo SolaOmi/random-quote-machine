@@ -18,9 +18,9 @@ function Quote(props) {
       <div>
         <h1 id="category">{props.category}</h1>
         <p id="text">
-          <i class="fas fa-quote-left"></i>
+          <i className="fas fa-quote-left"></i>
           {' ' + props.text + ' '}
-          <i class="fas fa-quote-right"></i>
+          <i className="fas fa-quote-right"></i>
         </p>
         <p id="author">-- {props.author} --</p>
       </div>
@@ -33,12 +33,12 @@ function QuoteBoxBtns(props) {
       <button id="tweet-quote"
               className="btn rounded animated"
               onClick={props.tweetQuote}>
-              <i class="fab fa-twitter"></i>
+              <i className="fab fa-twitter"></i>
       </button>
       <button id="new-quote"
               className="btn rounded animated"
               onClick={props.getQuote}>
-              <i class="fas fa-plus"></i>
+              <i className="fas fa-plus"></i>
       </button>
     </div>
   );
