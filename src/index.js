@@ -47,7 +47,7 @@ function QuoteBoxBtns(props) {
 function CircleTimer() {
 	return (
 		<svg>
-			<circle id="timer" r="18" cx="20" cy="20" />
+			<circle id="timer" className="timer-animation" r="18" cx="20" cy="20" />
 		</svg>
 	);
 }
@@ -59,10 +59,16 @@ class QuoteBox extends React.Component {
       text: null,
       author: null,
       category: null,
+			seconds: 0
     };
   }
 
-  getQuote() {
+  getQuote(isClicked) {
+		if (isClicked) {
+			this.setState({seconds: 0});
+			restartTimerAnimation();
+		}
+
     const url = "https://talaikis.com/api/quotes/random/"
 
     fetch(url)
@@ -83,15 +89,24 @@ class QuoteBox extends React.Component {
     window.open(url + escape(this.state.text + "\n- " + this.state.author));
   }
 
+	tick () {
+		this.setState(state => ({
+			seconds: state.seconds + 1
+		}));
+		if (this.state.seconds % 10 === 0) {
+			this.getQuote();
+		}
+	}
+
   componentDidMount() {
     this.getQuote();
-		this.interval = setInterval(() => this.getQuote(), 10000);
+		this.interval = setInterval(() => this.tick(), 1000);
   }
 
 	componentWillUnmount() {
 		clearInterval(this.interval);
 	}
-	
+
   render() {
     return (
       <div id="quote-box" className="white-background box rounded">
@@ -103,7 +118,7 @@ class QuoteBox extends React.Component {
 				<div id="lower-container">
 					<CircleTimer />
         	<QuoteBoxBtns
-          	getQuote={() => this.getQuote()}
+          	getQuote={() => this.getQuote(true)}
           	tweetQuote={() => this.tweetQuote()}
         	/>
 				</div>
@@ -129,4 +144,12 @@ function changeColor() {
   for (let i = 0; i < btns.length; i++) {
     btns[i].style.background = colors[num];
   }
+}
+
+function restartTimerAnimation() {
+	const timer = document.getElementById('timer');
+
+	timer.classList.toggle('timer-animation');
+	// Need to delay toggle for animation to restart properly.
+	setTimeout(() => timer.classList.toggle('timer-animation'), 10);
 }

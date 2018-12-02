@@ -66,7 +66,10 @@ svg circle {
   stroke-width: 2px;
   stroke: black;
   fill: none;
-  animation: countdown 10s linear infinite forwards;
+}
+
+.timer-animation {
+	animation: countdown 10s linear infinite forwards;
 }
 
 @keyframes countdown {
