@@ -88,6 +88,10 @@ class QuoteBox extends React.Component {
 		this.interval = setInterval(() => this.getQuote(), 10000);
   }
 
+	componentWillUnmount() {
+		clearInterval(this.interval);
+	}
+	
   render() {
     return (
       <div id="quote-box" className="white-background box rounded">
