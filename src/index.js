@@ -109,7 +109,7 @@ class QuoteBox extends React.Component {
 
   render() {
     return (
-      <div id="quote-box" className="white-background box rounded">
+      <div id="quote-box" className="white-background box rounded shadow">
         <Quote
           author={this.state.author}
           text={this.state.text}
