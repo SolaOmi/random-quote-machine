@@ -32,7 +32,7 @@ function QuoteBoxBtns(props) {
       </button>
       <button id="new-quote"
               className="btn rounded animated"
-              onClick={props.getQuote}>
+              onClick={() => props.getQuote(true)}>
               <i className="fas fa-plus"></i>
       </button>
     </div>
@@ -50,12 +50,16 @@ function CircleTimer() {
 class QuoteBox extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       text: null,
       author: null,
       category: null,
 			seconds: 0
     };
+
+		this.getQuote = this.getQuote.bind(this);
+		this.tweetQuote = this.tweetQuote.bind(this);
   }
 
   getQuote(isClicked) {
@@ -113,8 +117,8 @@ class QuoteBox extends React.Component {
 				<div id="lower-container">
 					<CircleTimer />
         	<QuoteBoxBtns
-          	getQuote={() => this.getQuote(true)}
-          	tweetQuote={() => this.tweetQuote()}
+          	getQuote={this.getQuote}
+          	tweetQuote={this.tweetQuote}
         	/>
 				</div>
       </div>
