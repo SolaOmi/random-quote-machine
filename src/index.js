@@ -68,15 +68,17 @@ class QuoteBox extends React.Component {
 			restartTimerAnimation();
 		}
 
-    const url = "https://talaikis.com/api/quotes/random/"
+    const url = "https://thesimpsonsquoteapi.glitch.me/quotes"
 
     fetch(url)
       .then(res => res.json())
       .then(result => {
+				const res = result[0];
+
         this.setState({
-          text: result.quote,
-          author: result.author,
-          category: result.cat
+          text: res.quote,
+          author: res.character,
+          category: "Simpsons Random Quotes"
         })
       })
 			.catch((error) => console.log(error.message));
