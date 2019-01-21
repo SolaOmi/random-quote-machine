@@ -78,7 +78,8 @@ class QuoteBox extends React.Component {
           author: result.author,
           category: result.cat
         })
-      });
+      })
+			.catch((error) => console.log(error.message));
 
     changeColor()
   }
