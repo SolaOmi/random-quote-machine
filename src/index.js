@@ -11,7 +11,7 @@ const colors = ['#FF6633', '#FFB399', '#FF33FF', '#00B3E6',
 function Quote(props) {
   return (
       <div>
-        <h1 id="category">{props.category}</h1>
+        <h1 id="category">{"simpsons random quotes"}</h1>
         <p id="text">
           <i className="fas fa-quote-left"></i>
           {' ' + props.text + ' '}
@@ -54,7 +54,6 @@ class QuoteBox extends React.Component {
     this.state = {
       text: null,
       author: null,
-      category: null,
 			seconds: 0
     };
 
@@ -78,7 +77,6 @@ class QuoteBox extends React.Component {
         this.setState({
           text: res.quote,
           author: res.character,
-          category: "Simpsons Random Quotes"
         })
       })
 			.catch((error) => console.log(error.message));
@@ -115,7 +113,6 @@ class QuoteBox extends React.Component {
         <Quote
           author={this.state.author}
           text={this.state.text}
-          category={this.state.category}
         />
 				<div id="lower-container">
 					<CircleTimer />
